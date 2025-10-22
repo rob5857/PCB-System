@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Escolar - Mi Colegio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papb+Y1+Y+6Q6+6Q6+6Q6+6Q6+6Q6+6Q6+6Q6+6Q6+6Q6+6Q6+6Q6+6Q6+6Q6+6Q6+6Q6+6Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">PCB System </h1>
+                <ul class="nav-menu">
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#classes">Cursos</a></li>
+                    <li><a href="calendario.html">Vida escolar</a></li>
+                    <li><a href="comunidad.html">Comunidad</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                    <li><button class="login-button" onclick="window.location.href='login.html'">Login</button></li>
+                    <li class="dropdown">
+                        <button class="menu-button" onclick="toggleDropdown()">
+                            <div class="hamburger-line"></div>
+                            <div class="hamburger-line"></div>
+                            <div class="hamburger-line"></div>
+                        </button>
+                        <div id="dropdown-menu" class="dropdown-content">
+                            <a href="#" onclick="selectOption('Ajustes')">Ajustes</a>
+                            <a href="#" onclick="selectOption('Idioma')">Idioma</a>
+                            <a href="#" onclick="selectOption('Ayuda')">Ayuda</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Bienvenido a la Superior Pablo Colón Berdecia</h1>
+                <p class="hero-subtitle">Tu plataforma educativa para gestionar clases, tareas y horarios</p>
+                <div class="hero-buttons">
+                    <button class="cta-button primary" onclick="scrollToSection('classes')">Ver Clases</button>
+                    <button class="cta-button secondary" onclick="scrollToSection('contact')">Contactanos</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>Sobre Nuestra Escuela</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>En Pablo Colon Berdecia, nos dedicamos a proporcionar una educación de calidad que prepara a nuestros estudiantes para el futuro. Ofrecemos una variedad de talleres especializados que combinan teoría y práctica para desarrollar habilidades profesionales.</p>
+                        <p>Nuestra misión es fomentar el crecimiento personal y profesional de cada estudiante, creando un ambiente de aprendizaje colaborativo y innovador.</p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>6</h3>
+                            <p>Talleres Especializados</p>
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="news" class="news-section">
+            <div class="container">
+                <h2>Noticias y Anuncios</h2>
+                <div class="news-grid">
+                    <div class="news-card">
+                        <h3>Reglamentos de la Escuela</h3>
+                        <p>Los reglamentos de nuestra escuela promueven un ambiente de respeto, responsabilidad y excelencia académica. Incluyen normas de conducta, políticas de asistencia y procedimientos disciplinarios para garantizar el bienestar de todos los estudiantes.</p>
+                        <div class="date">Actualizado: Octubre 2024</div>
+                    </div>
+                    <div class="news-card">
+                        <h3>Misión de la Escuela</h3>
+                        <p>Nuestra misión es proporcionar una educación integral que fomente el desarrollo académico, personal y profesional de nuestros estudiantes, preparándolos para enfrentar los desafíos del mundo moderno con valores éticos y habilidades innovadoras.</p>
+                        <div class="date">Establecido: 2024</div>
+                    </div>
+                    <div class="news-card">
+                        <h3>Visión de la Escuela</h3>
+                        <p>Nuestra visión es ser una institución educativa líder que inspire a los estudiantes a alcanzar su máximo potencial, contribuyendo al progreso de la comunidad y promoviendo la excelencia en la enseñanza y el aprendizaje.</p>
+                        <div class="date">Proyectado: 2025</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="offerings" class="offerings-section">
+            <div class="container">
+                <h2>Ofrecimentos Académicos </h2>
+                <div class="offerings-grid">
+                    <div class="offering-card">
+                        <h3>Cursos Generales</h3>
+                        <p>Información sobre los cursos generales disponibles y cómo inscribirse en ellos.</p>
+                        <button class="offering-button">Ver Cursos</button>
+                    </div>
+                    <div class="offering-card">
+                        <h3>Servicios de Orientación</h3>
+                        <p>Apoyo académico y emocional para estudiantes, incluyendo consejería y tutorías personalizadas.</p>
+                        <button class="offering-button">Contactar</button>
+                    </div>
+                    <div class="offering-card">
+                        <h3>Ofrecimientos de Talleres</h3>
+                        <p>Información sobre los talleres disponibles y cómo inscribirse en ellos.</p>
+                        <button class="offering-button" onclick="scrollToSection('classes')">Ver Talleres</button>
+                    </div>
+                    <div class="offering-card">
+                        <h3>Eventos Comunitarios</h3>
+                        <p>buscan integrar y fortalecer los lazos entre la comunidad educativa y el vecindario.</p>
+                        <button class="offering-button">Ver Cursos</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="classes" class="classes-section">
+            <div class="container">
+                <h2>Nuestros Talleres</h2>
+                <div class="classes-grid">
+                    <div class="class-card" onclick="showWorkshopInfo('Taller de Computec', 'Roberto Vazquez Vazquez', '101', 'Este taller integral de computación enseña fundamentos de programación, desarrollo web, ciberseguridad y uso avanzado de herramientas tecnológicas. Los estudiantes aprenderán lenguajes como Python, JavaScript y HTML/CSS, desarrollarán aplicaciones web, y adquirirán habilidades en resolución de problemas tecnológicos. Incluye proyectos prácticos como creación de sitios web, desarrollo de apps móviles básicas, y gestión de bases de datos. Al finalizar, los estudiantes estarán preparados para certificaciones en tecnología de la información y tendrán las bases para carreras en desarrollo de software, análisis de datos o soporte técnico. Duración: 2 años académicos con 4 horas semanales de práctica en laboratorio.')">
+                        <h3>Taller de Computec</h3>
+                        <p>Maestro: Roberto Vázquez</p>
+                        <p>Programación • Desarrollo Web • Ciberseguridad</p>
+<button class="workshop-button" onclick="event.stopPropagation(); window.location.href='computec.html'"><i class="fas fa-laptop-code"></i> Saber más</button>
+                    </div>
+                    <div class="class-card" onclick="showWorkshopInfo('Taller de Artes Culinarias', 'Melanie', '203', 'Descubre el fascinante mundo de la gastronomía en nuestro taller de artes culinarias. Este programa completo incluye técnicas de cocina internacional, pastelería avanzada, nutrición y dietética, y gestión de restaurantes. Los estudiantes aprenderán a preparar platillos tradicionales puertorriqueños, cocina internacional, y platos gourmet. Incluye prácticas en higiene y seguridad alimentaria, cálculo de costos de menú, y desarrollo de habilidades emprendedoras para iniciar negocios de comida. Los participantes desarrollarán creatividad culinaria, precisión en técnicas de cocción, y conocimientos en maridaje de alimentos. Al graduarse, estarán preparados para trabajar en restaurantes, hoteles, caterings, o iniciar sus propios emprendimientos culinarios. Duración: 2 años con prácticas en cocinas profesionales y participación en eventos gastronómicos escolares.')">
+                        <h3>Taller de Artes Culinarias</h3>
+                        <p>Maestra: Melanie Alicea</p>
+                        <p>Gastronomía • Pastelería • Emprendimiento</p>
+<button class="workshop-button" onclick="event.stopPropagation(); window.location.href='artes-culinarias.html'"><i class="fas fa-utensils"></i> Saber más</button>
+                    </div>
+                    <div class="class-card" onclick="showWorkshopInfo('Taller de Enfermeria', 'Marta Ortiz', '105', 'Forma parte del noble campo de la salud con nuestro taller de enfermería. Este programa integral prepara a los estudiantes para carreras en atención médica, combinando teoría y práctica intensiva. Incluye anatomía y fisiología humana, farmacología básica, técnicas de enfermería, primeros auxilios avanzados, y cuidado de pacientes con diferentes condiciones médicas. Los estudiantes aprenderán a tomar signos vitales, administrar medicamentos, realizar curaciones, y proporcionar cuidado compasivo a pacientes. El programa incluye prácticas en clínicas locales, simulaciones de emergencias médicas, y preparación para exámenes de certificación en primeros auxilios y RCP. Al completar el taller, los estudiantes estarán preparados para trabajar como asistentes de enfermería, técnicos médicos, o continuar estudios superiores en enfermería profesional. Duración: 2 años con rotaciones clínicas semanales y prácticas en instituciones de salud.')">
+                        <h3>Taller de Enfermeria</h3>
+                        <p>Maestra: Marta Ortiz</p>
+                        <p>Atención Médica • Primeros Auxilios • Cuidado al Paciente</p>
+<button class="workshop-button" onclick="event.stopPropagation(); window.location.href='enfermeria.html'"><i class="fas fa-notes-medical"></i> Saber más</button>
+                    </div>
+                    <div class="class-card" onclick="showWorkshopInfo('Taller de Cosmetologia', 'Nivia Ortiz', '301', 'Sumérgete en el mundo de la belleza y el cuidado personal con nuestro taller de cosmetología. Este programa completo abarca todas las áreas de la estética profesional, desde cortes de cabello y coloración, hasta tratamientos faciales avanzados y diseño de uñas. Los estudiantes aprenderán técnicas de maquillaje para ocasiones especiales, cuidado de la piel, masajes relajantes, y diseño de imagen personal. Incluye estudio de química de productos cosméticos, anatomía de la piel y cabello, y desarrollo de habilidades comerciales para gestión de salones de belleza. Los participantes practicarán con modelos reales y aprenderán sobre tendencias actuales en moda y belleza. Al finalizar, estarán preparados para obtener licencias profesionales, trabajar en salones de belleza, spas, o iniciar sus propios negocios de estética. Duración: 2 años con prácticas en salones profesionales y participación en desfiles de moda estudiantiles.')">
+                        <h3>Taller de Cosmetologia</h3>
+                        <p>Maestra: Nivia Ortiz</p>
+                        <p>Belleza • Estética • Imagen Personal</p>
+<button class="workshop-button" onclick="event.stopPropagation(); window.location.href='cosmetologia.html'"><i class="fas fa-spa"></i> Saber más</button>
+                    </div>
+                    <div class="class-card" onclick="showWorkshopInfo('Taller de Mercadeo', 'Nombre del Maestro', '302', 'Aprende técnicas y estrategias de mercadeo digital y tradicional. Este taller cubre publicidad, ventas, análisis de mercado, y desarrollo de campañas efectivas. Los estudiantes desarrollarán habilidades para promover productos y servicios en diversos medios y plataformas.')">
+                        <h3>Taller de Mercadeo</h3>
+                        <p>Maestra: Ada Rivera</p>
+                        <p>Publicidad • Ventas • Análisis de Mercado</p>
+<button class="workshop-button" onclick="event.stopPropagation(); window.location.href='mercadeo.html'"><i class="fas fa-bullhorn"></i> Saber más</button>
+                    </div>
+                    <div class="class-card" onclick="showWorkshopInfo('Taller de Elaboración de Productos Agrícolas', 'Nombre del Maestro', '303', 'Aprende técnicas de cultivo, cosecha y procesamiento de productos agrícolas. Este taller cubre prácticas agrícolas sostenibles, manejo de cultivos, y comercialización de productos. Los estudiantes desarrollarán habilidades para producir alimentos de calidad y promover la agricultura local.')">
+                        <h3>Taller de Elaboración de Productos Agrícolas</h3>
+                        <p>Maestro: Luis Ríos</p>
+                        <p>Cultivo • Cosecha • Comercialización</p>
+<button class="workshop-button" onclick="event.stopPropagation(); window.location.href='productos-agricolas.html'"><i class="fas fa-seedling"></i> Saber más</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="assignments" class="assignments-section">
+            <div class="container">
+                <h2>Eventos Pendientes</h2>
+                <div class="assignment-form">
+                    <input type="text" id="assignmentInput" placeholder="Nueva tarea...">
+                    <button onclick="addAssignment()">Agregar</button>
+                </div>
+                <div id="assignmentsList" class="assignments-list"></div>
+                <p><a href="calendario.html">Ver Calendario de Eventos</a></p>
+            </div>
+        </section>
+
+        <section id="quick-links" class="quick-links-section">
+            <div class="container">
+                <h2>Enlaces Rápidos</h2>
+                <div class="quick-links-grid">
+                    <button class="quick-link-button" onclick="window.location.href='login.html'">
+                        <h3>Portal Estudiantil</h3>
+                        <p>Accede a tu cuenta y recursos</p>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>Contactos de Escuela</h2>
+                <p>¿Necesitas ayuda? Contáctanos</p>
+                <div class="contact-info">
+<p><strong>Dirección:</strong> Calle Barcelo Final Sector Nuevo 00794</p>
+                    <p><strong>Teléfono:</strong> +1 (787)-857-2897</p>
+                    <p><strong>Horario:</strong> 7:30am a 2:30pm</p>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Nombre" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Mensaje" rows="5" required></textarea>
+                    <button type="submit">Enviar Mensaje</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+<p>&copy; 2025 Pablo Colon Berdecia. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

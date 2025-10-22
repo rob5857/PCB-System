@@ -1,0 +1,6 @@
+id,name,email,password,phone,location,crop_type,farm_size,experience_years
+1,John Doe,john@example.com,password123,1234567890,California,Wheat,50,10
+2,Jane Smith,jane@example.com,password456,0987654321,Texas,Corn,75,15
+3,Bob Johnson,bob@example.com,password789,1122334455,Florida,Tomatoes,30,8
+4,Alice Brown,alice@example.com,password101,5566778899,New York,Apples,40,12
+5,Charlie Wilson,charlie@example.com,password202,9988776655,Illinois,Soybeans,60,20

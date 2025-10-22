@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Portal Escolar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">Project BlackStar</h1>
+                <ul class="nav-menu">
+                    <li><a href="index.html#home">Inicio</a></li>
+                    <li><a href="index.html#classes">Clases</a></li>
+                    <li><a href="index.html#schedule">Horario</a></li>
+                    <li><a href="index.html#assignments">Eventos</a></li>
+                    <li><a href="calendario.html">Calendario</a></li>
+                    <li><a href="index.html#contact">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Iniciar Sesión</h2>
+                <p>Accede a tu cuenta para gestionar tus clases y tareas</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <h2>Login</h2>
+                <form class="contact-form" id="loginForm">
+                    <input type="text" placeholder="Usuario" required>
+                    <input type="password" placeholder="Contraseña" required>
+                    <button type="submit">Iniciar Sesión</button>
+                </form>
+                <p>¿No tienes cuenta? <a href="register.html">Regístrate aquí</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Pablo Colon Berdecia. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Login exitoso (simulado)');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

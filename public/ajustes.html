@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajustes - Portal Escolar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papb+Y1+Y+6Q6+6Q6+6Q6+6Q6+6Q6+6Q6+6Q6+6Q6+6Q6+6Q6+6Q6+6Q6+6Q6+6Q6+6Q6+6Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">Project BlackStar</h1>
+                <ul class="nav-menu">
+                    <li><a href="index.html#home">Inicio</a></li>
+                    <li><a href="index.html#classes">Cursos</a></li>
+                    <li><a href="calendario.html">Vida escolar</a></li>
+                    <li><a href="comunidad.html">Comunidad</a></li>
+                    <li><a href="index.html#contact">Contacto</a></li>
+                    <li><button class="login-button" onclick="window.location.href='login.html'">Login</button></li>
+                    <li class="dropdown">
+                        <button class="menu-button" onclick="toggleDropdown()">
+                            <div class="hamburger-line"></div>
+                            <div class="hamburger-line"></div>
+                            <div class="hamburger-line"></div>
+                        </button>
+                        <div id="dropdown-menu" class="dropdown-content">
+                            <a href="#" onclick="selectOption('Ajustes')">Ajustes</a>
+                            <a href="#" onclick="selectOption('Idioma')">Idioma</a>
+                            <a href="#" onclick="selectOption('Ayuda')">Ayuda</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Ajustes de Usuario</h2>
+                <p>Personaliza tu experiencia en el portal escolar</p>
+            </div>
+        </section>
+
+        <section class="classes-section">
+            <div class="container">
+                <h2>Configuración</h2>
+                <div class="portal-sections">
+                    <div class="portal-card">
+                        <h3>Perfil de Usuario</h3>
+                        <p>Actualiza tu información personal y preferencias</p>
+                        <button class="cta-button" onclick="alert('Funcionalidad próximamente')">Editar Perfil</button>
+                    </div>
+                    <div class="portal-card">
+                        <h3>Notificaciones</h3>
+                        <p>Configura cómo recibir notificaciones</p>
+                        <button class="cta-button" onclick="alert('Funcionalidad próximamente')">Configurar</button>
+                    </div>
+                    <div class="portal-card">
+                        <h3>Privacidad</h3>
+                        <p>Administra la privacidad de tus datos</p>
+                        <button class="cta-button" onclick="alert('Funcionalidad próximamente')">Ajustes de Privacidad</button>
+                    </div>
+                    <div class="portal-card">
+                        <h3>Tema</h3>
+                        <p>Cambia el tema de la aplicación</p>
+                        <button class="cta-button" onclick="alert('Funcionalidad próximamente')">Cambiar Tema</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <button class="cta-button" onclick="window.location.href='index.html'">Volver al Inicio</button>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Pablo Colon Berdecia. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

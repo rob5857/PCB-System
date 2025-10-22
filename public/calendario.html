@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Eventos - Portal Escolar</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .calendar-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .calendar-header button {
+            background-color: #2980b9;
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-family: 'Georgia', serif;
+        }
+        .calendar-header button:hover {
+            background-color: #1c5980;
+        }
+        .calendar {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .calendar th, .calendar td {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            text-align: center;
+            font-family: 'Georgia', serif;
+        }
+        .calendar th {
+            background-color: #2980b9;
+            color: white;
+        }
+        .calendar td:hover {
+            background-color: #f7f9fc;
+            cursor: pointer;
+        }
+        .today {
+            background-color: #e8f4f8;
+            font-weight: bold;
+        }
+        .event-day {
+            background-color: #fff3cd;
+            position: relative;
+        }
+        .event-day::after {
+            content: "•";
+            color: #ffc107;
+            font-size: 1.5rem;
+            position: absolute;
+            top: 0;
+            right: 5px;
+        }
+        .event-list {
+            margin-top: 2rem;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .event-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .event-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">Project BlackStar</h1>
+                <ul class="nav-menu">
+                    <li><a href="index.html#home">Inicio</a></li>
+                    <li><a href="index.html#classes">Clases</a></li>
+                    <li><a href="index.html#schedule">Horario</a></li>
+                    <li><a href="calendario.html">Vida escolar</a></li>
+                    <li><a href="index.html#contact">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Calendario de Eventos</h2>
+                <p>Visualiza y gestiona todos los eventos escolares</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <button id="prevMonth">< Anterior</button>
+                        <h2 id="monthYear">Mes Año</h2>
+                        <button id="nextMonth">Siguiente ></button>
+                    </div>
+                    <table class="calendar" id="calendarTable">
+                        <thead>
+                            <tr>
+                                <th>Dom</th>
+                                <th>Lun</th>
+                                <th>Mar</th>
+                                <th>Mié</th>
+                                <th>Jue</th>
+                                <th>Vie</th>
+                                <th>Sáb</th>
+                            </tr>
+                        </thead>
+                        <tbody id="calendarBody">
+                            <!-- Calendar days will be generated here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="event-list">
+                    <h3>Próximos Eventos</h3>
+                    <div id="eventList">
+                        <!-- Events will be loaded dynamically -->
+                    </div>
+                    <button id="addEventBtn" class="cta-button primary" style="margin-top: 1rem;">Agregar Evento</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Pablo Colon Berdecia. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentDate = new Date();
+        let events = [];
+
+        async function loadEvents() {
+            try {
+                const response = await fetch('/api/events');
+                events = await response.json();
+                renderCalendar();
+                renderEventList();
+            } catch (error) {
+                console.error('Error loading events:', error);
+            }
+        }
+
+        function renderCalendar() {
+            const monthYear = document.getElementById('monthYear');
+            const calendarBody = document.getElementById('calendarBody');
+
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+
+            monthYear.textContent = currentDate.toLocaleDateString('es-ES', { month: 'long', year: 'numeric' });
+
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const startDate = new Date(firstDay);
+            startDate.setDate(startDate.getDate() - firstDay.getDay());
+
+            const endDate = new Date(lastDay);
+            endDate.setDate(endDate.getDate() + (6 - lastDay.getDay()));
+
+            let html = '';
+            let date = new Date(startDate);
+
+            while (date <= endDate) {
+                html += '<tr>';
+                for (let i = 0; i < 7; i++) {
+                    const day = date.getDate();
+                    const isCurrentMonth = date.getMonth() === month;
+                    const isToday = date.toDateString() === new Date().toDateString();
+                    const hasEvent = hasEventOnDate(date);
+
+                    let className = '';
+                    if (!isCurrentMonth) className += ' other-month';
+                    if (isToday) className += ' today';
+                    if (hasEvent) className += ' event-day';
+
+                    html += `<td class="${className}" onclick="selectDate(${date.getTime()})">${day}</td>`;
+                    date.setDate(date.getDate() + 1);
+                }
+                html += '</tr>';
+            }
+
+            calendarBody.innerHTML = html;
+        }
+
+        function hasEventOnDate(date) {
+            const dateStr = date.toISOString().split('T')[0];
+            return events.some(event => event.date === dateStr);
+        }
+
+        function renderEventList() {
+            const eventList = document.getElementById('eventList');
+            eventList.innerHTML = '';
+
+            if (events.length === 0) {
+                eventList.innerHTML = '<p>No hay eventos próximos</p>';
+                return;
+            }
+
+            events.forEach(event => {
+                const eventItem = document.createElement('div');
+                eventItem.className = 'event-item';
+                eventItem.innerHTML = `
+                    <strong>${new Date(event.date).toLocaleDateString('es-ES')}: ${event.title}</strong>
+                    ${event.description ? '<br>' + event.description : ''}
+                    <button onclick="deleteEvent(${event.id})" style="float: right; background: #e74c3c; color: white; border: none; padding: 0.2rem 0.5rem; border-radius: 3px; cursor: pointer;">Eliminar</button>
+                `;
+                eventList.appendChild(eventItem);
+            });
+        }
+
+        function selectDate(timestamp) {
+            const date = new Date(timestamp);
+            const dateStr = date.toISOString().split('T')[0];
+            const eventTitle = prompt('Agregar evento para ' + date.toLocaleDateString('es-ES') + ' (dejar vacío para cancelar):');
+            if (eventTitle && eventTitle.trim()) {
+                const description = prompt('Descripción del evento (opcional):');
+                addEvent(eventTitle.trim(), dateStr, description || '');
+            }
+        }
+
+        async function addEvent(title, date, description) {
+            try {
+                const response = await fetch('/api/events', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ title, date, description })
+                });
+                if (response.ok) {
+                    await loadEvents();
+                } else {
+                    alert('Error al agregar el evento');
+                }
+            } catch (error) {
+                console.error('Error adding event:', error);
+                alert('Error al agregar el evento');
+            }
+        }
+
+        async function deleteEvent(id) {
+            if (confirm('¿Estás seguro de que quieres eliminar este evento?')) {
+                try {
+                    const response = await fetch(`/api/events/${id}`, {
+                        method: 'DELETE'
+                    });
+                    if (response.ok) {
+                        await loadEvents();
+                    } else {
+                        alert('Error al eliminar el evento');
+                    }
+                } catch (error) {
+                    console.error('Error deleting event:', error);
+                    alert('Error al eliminar el evento');
+                }
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing calendar...');
+
+            document.getElementById('prevMonth').addEventListener('click', () => {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+                renderCalendar();
+            });
+
+            document.getElementById('nextMonth').addEventListener('click', () => {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                renderCalendar();
+            });
+
+            document.getElementById('addEventBtn').addEventListener('click', () => {
+                console.log('Add Event button clicked');
+                const title = prompt('Título del evento:');
+                if (title && title.trim()) {
+                    const date = prompt('Fecha (YYYY-MM-DD):', new Date().toISOString().split('T')[0]);
+                    if (date) {
+                        const description = prompt('Descripción (opcional):');
+                        addEvent(title.trim(), date, description || '');
+                    }
+                }
+            });
+
+            // Initial load
+            loadEvents();
+        });
+    </script>
+</body>
+</html>

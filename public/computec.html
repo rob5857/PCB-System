@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller de Computec - Portal Escolar</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Soft pastel color overrides for Computec page */
+        body {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            color: #5a6c7d;
+        }
+
+        .logo {
+            color: #5a6c7d;
+        }
+
+        .logo:hover {
+            color: #7fb3d5;
+        }
+
+        .nav-menu li a {
+            color: #5a6c7d;
+        }
+
+        .nav-menu li a:hover {
+            color: #7fb3d5;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(173, 216, 230, 0.8) 0%, rgba(221, 160, 221, 0.8) 100%), url('https://via.placeholder.com/1920x1080/87CEEB/FFFFFF?text=Taller+de+Computec') no-repeat center center/cover;
+            color: #5a6c7d;
+        }
+
+        .cta-button {
+            background-color: #7fb3d5;
+            box-shadow: 0 6px 15px rgba(127, 179, 213, 0.4);
+        }
+
+        .cta-button:hover {
+            background-color: #5dade2;
+            box-shadow: 0 8px 20px rgba(93, 173, 226, 0.6);
+        }
+
+        .classes-section,
+        .curriculum-section,
+        .gallery-section {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #5a6c7d;
+        }
+
+        .workshop-details {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .curriculum-list li {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #5a6c7d;
+        }
+
+        .curriculum-list li:before {
+            color: #7fb3d5;
+        }
+
+        .gallery-item {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .testimonials-section {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0e6ff 100%);
+            color: #5a6c7d;
+        }
+
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .testimonial-card cite {
+            color: #7fb3d5;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.9);
+            color: #5a6c7d;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">Pablo Colon Berdecia</h1>
+                <ul class="nav-menu">
+                    <li><a href="index.html#home">Inicio</a></li>
+                    <li><a href="index.html#classes">Clases</a></li>
+                    <li><a href="index.html#schedule">Horario</a></li>
+                    <li><a href="index.html#assignments">Eventos</a></li>
+                    <li><a href="index.html#contact">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Taller de Computec</h2>
+                <p>Aprende fundamentos de computación y programación</p>
+            </div>
+        </section>
+
+        <section class="classes-section">
+            <div class="container">
+                <h2>Detalles del Taller</h2>
+                <div class="workshop-details">
+                    <p><strong>Maestro:</strong> Roberto Vázquez Vázquez</p>
+                    <p><strong>Descripción:</strong> Este taller enseña fundamentos de computación, programación básica y uso de herramientas tecnológicas modernas. Cubre temas como algoritmos, lenguajes de programación, bases de datos y desarrollo web.</p>
+
+                    <p><strong>Requisitos:</strong> Interés en tecnología, computadora personal recomendada</p>
+                </div>
+                <button class="cta-button" onclick="window.location.href='index.html'">Volver al Inicio</button>
+            </div>
+        </section>
+
+        <section class="curriculum-section">
+            <div class="container">
+                <h2>Currículo del Taller</h2>
+                <div class="curriculum-content">
+                    <ul class="curriculum-list">
+                        <li>Introducción a la computación y algoritmos</li>
+                        <li>Programación básica (Python, JavaScript)</li>
+                        <li>Bases de datos y SQL</li>
+                        <li>Desarrollo web (HTML, CSS, JavaScript)</li>
+                        <li>Herramientas tecnológicas modernas</li>
+                        <li>Proyectos prácticos de software</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <div class="container">
+                <h2>Galería de Actividades</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Programación en acción">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Desarrollo web">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Equipos de computación">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Clase de computec">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <div class="container">
+                <h2>Lo que dicen nuestros estudiantes</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>"Aprendí a programar y ahora creo mis propias apps. ¡Increíble experiencia!"</p>
+                        <cite>- Isaac Berrios García</cite>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Ta cool."</p>
+                        <cite>- Kehnay Santiago Rivera</cite>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"El mejor taller de todos."</p>
+                        <cite>- Keniel O. Santana Alvarado</cite>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Pablo Colon Berdecia. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

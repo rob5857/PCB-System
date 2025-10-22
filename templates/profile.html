@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/crops">Crops</a></li>
+            <li><a href="/weather">Weather</a></li>
+            <li><a href="/market">Market</a></li>
+            <li><a href="/notifications">Notifications</a></li>
+            <li><a href="/admin">Admin</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Farmer Profile</h1>
+        <p>Name: {{ farmer.name }}</p>
+        <p>Email: {{ farmer.email }}</p>
+        <p>Phone: {{ farmer.phone }}</p>
+        <p>Location: {{ farmer.location }}</p>
+        <p>Crop Type: {{ farmer.crop_type }}</p>
+        <p>Farm Size: {{ farmer.farm_size }}</p>
+        <p>Experience: {{ farmer.experience_years }} years</p>
+    </div>
+</body>
+</html>

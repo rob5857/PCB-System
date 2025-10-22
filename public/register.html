@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registro - Portal Escolar</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">Project BlackStar</h1>
+                <ul class="nav-menu">
+                    <li><a href="index.html#home">Inicio</a></li>
+                    <li><a href="index.html#classes">Clases</a></li>
+                    <li><a href="index.html#schedule">Horario</a></li>
+                    <li><a href="index.html#assignments">Eventos</a></li>
+                    <li><a href="calendario.html">Calendario</a></li>
+                    <li><a href="index.html#contact">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Registro de Usuario</h2>
+                <p>Crea una cuenta para acceder a todas las funcionalidades</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <h2>Formulario de Registro</h2>
+                <form class="contact-form" id="registerForm">
+                    <input type="text" placeholder="Nombre completo" required />
+                    <input type="email" placeholder="Correo electrónico" required />
+                    <input type="password" placeholder="Contraseña" required />
+                    <input type="password" placeholder="Confirmar contraseña" required />
+                    <button type="submit">Registrarse</button>
+                </form>
+                <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Pablo Colon Berdecia. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Registro exitoso (simulado)');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>
